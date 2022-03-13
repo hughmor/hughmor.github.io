@@ -9,15 +9,16 @@ redirect_from:
 
 {% include base_path %}
 
+The online version of my CV is incomplete, in the meantime [check out the PDF](/files/HughMorisonCV_12Mar22.pdf)
+
 Education
 ======
-* B.S. in GitHub, GitHub University, 2012
-* M.S. in Jekyll, GitHub University, 2014
-* Ph.D in Version Control Theory, GitHub University, 2018 (expected)
+* B.ASc. in Engineering Physics (Computing), Queen's University, 2019
+* Ph.D in Engineering Physics, Queen's University, 2024 (expected)
 
 Work experience
 ======
-* Summer 2015: Research Assistant
+* Summer 2016: Research Assistant
   * Github University
   * Duties included: Tagging issues
   * Supervisor: Professor Git
