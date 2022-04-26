@@ -9,7 +9,7 @@ redirect_from:
 
 {% include base_path %}
 
-The online version of my CV is incomplete, in the meantime [check out the PDF](/files/HughMorisonCV_12Mar22.pdf)
+The online version of my CV is incomplete, in the meantime [check out the PDF](/files/HughMorisonCV_26Apr22.pdf)
 
 Education
 ======
