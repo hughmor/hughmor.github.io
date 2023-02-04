@@ -16,3 +16,14 @@ Our lab works on implementing the ideas of neuromorphic computing in the rapidly
 Outside of the lab
 ======
 In my time outside of work, I still like to work on electronics and programming projects (what can I say... I like computers 😅), and I enjoy thinking about ideas related to artificial cognition and consciousness and the philosophy of aritificial intelligence. Other than that, I like to get outside as much as I can, learn new skills, read good books, and try not to take life too seriously. One of my biggest outdoor passions is skiing, but coming from Alberta it's hard to find the motivation to get out to Ontario's mountains—if you can call them mountains 😉—so I find myself working on new challenges. Most recently these have been bouldering and kayaking but you'll also find me skateboarding, canoeing, hiking, and camping.
+
+# Testing Markdown syntax
+Can I do equations? $x+y=5$ Not sure if that's correct markdown syntax...
+
+This would be a muliline equation:
+$$
+\begin{align}
+  y &= \frac{1}{3}r^3 \\
+\therefore \frac{dy}{dr}&=r^2
+\end{align}
+$$
