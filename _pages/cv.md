@@ -9,33 +9,49 @@ redirect_from:
 
 {% include base_path %}
 
-The online version of my CV is incomplete, in the meantime [check out the PDF](/files/HughMorisonCV_26Apr22.pdf)
+[PDF One-Pager](/files/HughMorisonCV_26Apr22.pdf)
 
 Education
 ======
-* B.ASc. in Engineering Physics (Computing), Queen's University, 2019
-* Ph.D in Engineering Physics, Queen's University, 2024 (expected)
+* B.ASc. in Engineering Physics (Computing Specialization), Queen's University, Graduated 2019
+* Ph.D in Engineering Physics, Queen's University, Ongoing
 
 Work experience
 ======
-* Summer 2016: Research Assistant
-  * Github University
-  * Duties included: Tagging issues
-  * Supervisor: Professor Git
+* Fall 2019-Present: Research Fellow
+  * Shastri Lab | Queen's University
+  * Duties included: 
+  * Supervisor: Bhavin Shastri
 
-* Fall 2015: Research Assistant
-  * Github University
-  * Duties included: Merging pull requests
-  * Supervisor: Professor Hub
+* Fall 2019-Present: Teaching Assistant
+  * Department of Physics, Engineering Physics, and Astronomy | Queen's University
+  * Courses Instructed:
+    * 4th-year Engineering Physics Design Projects (ENPH 455)
+    * 3rd-year Analog/Digital Electronics Labs (ENPH 334)
+    * 2nd-year Engineering Physics Laboratory (ENPH 253)
+
+* Summer 2018: Programmer
+  * GeoSLOPE International
+  * Duties included: Front-end web development and business analysis. Implemented new web-store payment system. Interfaced business intelligence software with CRM tools to automate generation of actionable insights.
+  <!-- * Supervisor: Professor Hub -->
   
-Skills
+Skills / Software
 ======
-* Skill 1
-* Skill 2
-  * Sub-skill 2.1
-  * Sub-skill 2.2
-  * Sub-skill 2.3
-* Skill 3
+* Programming (mainly Python, some C, and others)
+  * Unix Command Line
+* Lumerical
+* PCB Design
+  * KiCAD
+  * Eagle
+* Photonic Chip Layout
+  * KLayout
+  * Cadence Suite
+* Lab Skills
+  * Photonics/RF Electronics
+* Fabrication Skills
+  * UV Lithography
+  * Die Wirebonding
+* Bilingual (English & French)
 
 Publications
 ======
@@ -43,11 +59,11 @@ Publications
     {% include archive-single-cv.html %}
   {% endfor %}</ul>
   
-Talks
+<!-- Talks
 ======
   <ul>{% for post in site.talks %}
     {% include archive-single-talk-cv.html %}
-  {% endfor %}</ul>
+  {% endfor %}</ul> -->
   
 Teaching
 ======
@@ -55,6 +71,6 @@ Teaching
     {% include archive-single-cv.html %}
   {% endfor %}</ul>
   
-Service and leadership
+<!-- Service and leadership
 ======
-* Currently signed in to 43 different slack teams
+* Currently signed in to 43 different slack teams -->
