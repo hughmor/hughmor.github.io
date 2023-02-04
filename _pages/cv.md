@@ -19,12 +19,12 @@ Education
 Work experience
 ======
 * Fall 2019-Present: Research Fellow
-  * Shastri Lab | Queen's University
+  * Shastri Lab — Queen's University
   * Duties included: 
   * Supervisor: Bhavin Shastri
 
 * Fall 2019-Present: Teaching Assistant
-  * Department of Physics, Engineering Physics, and Astronomy | Queen's University
+  * Department of Physics, Engineering Physics, and Astronomy — Queen's University
   * Courses Instructed:
     * 4th-year Engineering Physics Design Projects (ENPH 455)
     * 3rd-year Analog/Digital Electronics Labs (ENPH 334)
