@@ -9,21 +9,8 @@ redirect_from:
 ---
 
 
-Hi, I'm Hugh! I'm a computer hardware engineer currently working on my PhD with the [Shastri Lab](https://www.queensu.ca/physics/shastrilab/) at Queen's University in Kingston. This website is still incomplete, but don't hesitate to get in touch through any of the links on the left under my picture if you want to know more about projects I've worked on!
+Hi, I'm Hugh! I'm a computer hardware engineer, originally from Calgary, AB, and currently working on my PhD with the [Shastri Lab](https://www.queensu.ca/physics/shastrilab/) at Queen's University in Kingston, ON. Check out my work and feel free to reach out through any of the links on the left side!
 
-Our lab works on implementing the ideas of neuromorphic computing in the rapidly advancing field of silicon photonics. Some things I have worked on include silicon photonic chip design and layout, design of RF PCBs for packaging photonic systems, and programming photonics simulations and machine learning models in Python. Much of my work is experimental in nature, but I'm fundamentally driven by my curiosity about intelligent systems and what it takes to advance artificially intelligent systems beyond what has been possible today with current digital computing architectures. I'm also really passionate about data visualization; I think being able to present results in a compelling way is one of the most important tools for communication in science.
+Our lab works on implementing ideas of neuromorphic computing in the rapidly advancing field of silicon photonics. Some things I have worked on include silicon photonic chip design and layout, design of RF PCBs for packaging photonic systems, and programming photonics simulations and machine learning models in Python. Much of my work is experimental in nature, but I'm fundamentally driven by my curiosity about intelligent systems and what it takes to advance artificially intelligent systems beyond what has been possible today with current digital computing architectures. I'm also really passionate about data visualization; I think being able to present results in a compelling way is one of the most important tools for communication in science.
 
-Outside of the lab
-======
-In my time outside of work, I still like to work on electronics and programming projects (what can I say... I like computers 😅), and I enjoy thinking about ideas related to artificial cognition and consciousness and the philosophy of aritificial intelligence. Other than that, I like to get outside as much as I can, learn new skills, read good books, and try not to take life too seriously. One of my biggest outdoor passions is skiing, but coming from Alberta it's hard to find the motivation to get out to Ontario's mountains—if you can call them mountains 😉—so I find myself working on new challenges. Most recently these have been bouldering and kayaking but you'll also find me skateboarding, canoeing, hiking, and camping.
-
-# Testing Markdown syntax
-Can I do equations? $x+y=5$ Not sure if that's correct markdown syntax...
-
-This would be a muliline equation:
-$$
-\begin{align}
-  y &= \frac{1}{3}r^3 \\
-\therefore \frac{dy}{dr}&=r^2
-\end{align}
-$$
+Outside of work, I still like to work on electronics and programming projects, and I enjoy thinking about ideas related to artificial cognition and consciousness, and the societal impacts of AI systems as we approach the singularity. Other than that, I'm a pretty outdoorsy person. One of my biggest passions is big mountain skiing; I competed in freestyle and big mountain events when I was younger, and still try to get out as much as I can. I've recently taken up rock climbing as a year-round activity, but you'll also find me skateboarding, canoeing or kayaking, hiking, and camping. I'm always up for learning new skills, reading good books, and I try not to take life too seriously 🤠
