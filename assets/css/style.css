@@ -1,0 +1,99 @@
+/* tweak these — no rebuild needed after push */
+:root{
+  --bg:rgb(40, 48, 63);
+  --txt:#c0c0c0;
+  --hdr:rgb(191, 225, 212);
+  --hdr1: var(--hdr);
+  --hdr2: var(--hdr);
+  --hdr3: var(--hdr);
+  --accent:rgb(179, 229, 228);
+  --code-bg:hsl(219, 22%, 15%);
+  --code-border:hsl(219, 22%, 25%);
+  --code-text:#e6e6e6;
+  --font:'inter',system-ui, sans-serif;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  background:var(--bg);
+  color:var(--txt);
+  font-family:var(--font);
+  line-height:1.6;
+  max-width:740px;
+  margin:2rem auto;
+  padding:0 1rem;
+}
+h1{
+  color:var(--hdr1);
+  margin:1.4rem 0 .6rem;
+}
+
+h2{
+  color:var(--hdr2);
+  margin:1.4rem 0 .6rem;
+}
+
+h3{
+  color:var(--hdr3);
+  margin:1.4rem 0 .6rem;
+}
+a{
+  color:var(--accent);
+  text-decoration:none;
+}
+a:hover{ text-decoration:underline }
+footer{
+  margin:3rem 0 1rem;
+  font-size:.8rem;
+  opacity:.6;
+  text-align:center;
+}
+p { /* give every paragraph a comfy bottom margin */
+  margin-block-end: 1.25rem;   /* ~20 px on most browsers */
+}
+p + p { /* tighten successive paragraphs if you need newspaper vibes */
+  margin-block-start: 0;       /* removes the extra top margin */
+}
+
+/* -------- code block styling -------- */
+pre{
+  background:var(--code-bg);
+  border:1px solid var(--code-border);
+  border-radius:6px;
+  padding:1rem 1.2rem;
+  overflow-x:auto;
+  margin:1.2rem 0;
+  position:relative;
+}
+
+pre code{
+  color:var(--code-text);
+  font-family:'fira code',ui-monospace,monospace;
+  font-size:0.9rem;
+}
+
+.copy-btn{
+  position:absolute;
+  top:0.4rem;
+  right:0.6rem;
+  background:var(--accent);
+  color:var(--bg);
+  border:none;
+  padding:0.2rem 0.6rem;
+  font-size:0.7rem;
+  border-radius:4px;
+  cursor:pointer;
+  opacity:0.9;
+}
+.copy-btn:hover{opacity:1}
+
+
+/* -------- navigation + post list -------- */
+/* .home-link{
+  margin:-0.8rem 0 1.6rem;
+  font-size:0.9rem;
+} */
+
+.posts-list{ list-style-type:disc; margin-left:1.2rem; }
+.posts-list li{ margin-bottom:1rem; }
+.posts-list em{ font-size:0.9rem; opacity:0.8; }

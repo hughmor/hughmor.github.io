@@ -1,1 +1,21 @@
+# --- misc ----
 .DS_Store
+.vscode/
+*.swp
+
+# ---- jekyll ----
+_site/
+.jekyll-cache/
+.sass-cache/
+vendor/
+
+# ---- ruby/bundler ----
+*.gem
+.bundle/
+
+# ---- node ----
+node_modules/
+
+# ---- logs ----
+log/
+*.log

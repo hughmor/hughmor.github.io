@@ -1,0 +1,4 @@
+title: "hugh's tiny site"
+markdown: kramdown   # default anyway, just explicit
+theme: null          # disable gh-pages default theme
+permalink: /:year/:month/:day/:title/
