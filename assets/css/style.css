@@ -54,6 +54,20 @@ p { /* give every paragraph a comfy bottom margin */
 p + p { /* tighten successive paragraphs if you need newspaper vibes */
   margin-block-start: 0;       /* removes the extra top margin */
 }
+.home-page-header{
+  display:flex;
+  justify-content: space-between;
+  align-items:baseline;              /* vertical centring */
+  margin-bottom:1rem;              /* breathing room */
+}
+.lucide {
+  color:var(--hdr);
+  width:1.5em;                  /* size */
+  height:1.5em;
+  stroke-width:1.5;            /* line weight */
+  margin-right:.5rem;          /* breathing room */
+  vertical-align:baseline;/* tiny downward shim */
+}
 
 /* -------- code block styling -------- */
 pre{
