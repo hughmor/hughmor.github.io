@@ -1,12 +1,12 @@
 /* tweak these — no rebuild needed after push */
 :root{
   --bg:rgb(40, 48, 63);
-  --txt:#c0c0c0;
-  --hdr:rgb(191, 225, 212);
+  --txt:#cecece;
+  --hdr:rgb(165, 221, 199);
   --hdr1: var(--hdr);
   --hdr2: var(--hdr);
   --hdr3: var(--hdr);
-  --accent:rgb(179, 229, 228);
+  --accent:rgb(200, 170, 245);
   --code-bg:hsl(219, 22%, 15%);
   --code-border:hsl(219, 22%, 25%);
   --code-text:#e6e6e6;
