@@ -9,7 +9,11 @@ title: hugh
 
 <div></div>
 
-I'm working on my PhD in neuromorphic coputing in analog photonic substrates. Recently, this has led me back into the digital world and I'm trying to understand the frontier of digital compute, which I'm going to document as much as I can in the posts below. I'm still pretty bullish on analog systems in the long run, but at this point I think hybrid analog/digital asynchronous computers are a really exciting avenue for the development of intelligent and autonomous systems.
+My background is in engineering physics, and I did my PhD working on neuromorphic computing using analog photonic substrates. I'm passionate about developing intelligent processing systems.
+
+I believe that analog systems may one day catch up with and outpace digital ones, but I realized at some point during my PhD that starting my career in analog computing, before having a true understanding of modern computer architecture, was to my detriment. When getting into FPGAs (AMD RFSoCs), I was exposed to my own misunderstandings of how digital systems work, and this lit a fire in me that led me back into learning about digital systems, and I've spent the past while trying to teach myself all the basics that any competent computer engineer should know.
+
+Below, you can find all the posts I make along the way. These will be updates on projects I'm working on, posts about the theory and history of computing and physics, takeaways from books I'm reading, and whatever else I decide fits the theme.
 
 
 ## posts
