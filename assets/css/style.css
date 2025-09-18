@@ -2,7 +2,8 @@
 :root{
   --bg:rgb(40, 48, 63);
   --txt:#cecece;
-  --hdr:rgb(165, 221, 199);
+  --date-text-colour:#999999;
+  --hdr:rgb(210, 195, 233);
   --hdr1: var(--hdr);
   --hdr2: var(--hdr);
   --hdr3: var(--hdr);
@@ -69,6 +70,13 @@ p + p { /* tighten successive paragraphs if you need newspaper vibes */
   vertical-align:baseline;/* tiny downward shim */
 }
 
+/* --- blog post date style --- */
+.post-date {
+  font-style: italic;
+  color: var(--date-text-colour); /* a subtle grey */
+}
+
+
 /* -------- code block styling -------- */
 pre{
   background:var(--code-bg);
@@ -111,6 +119,19 @@ pre code{
 .posts-list{ list-style-type:disc; margin-left:1.2rem; }
 .posts-list li{ margin-bottom:1rem; }
 .posts-list em{ font-size:0.9rem; opacity:0.8; }
+
+.posts-list .post-title {
+  flex: 1;
+}
+
+.posts-list .post-date {
+  font-style: italic;
+  color: var(--date-text-colour);
+  margin-left: 1em;
+  white-space: nowrap;
+}
+
+
 
 /* block quote styling */
 blockquote{

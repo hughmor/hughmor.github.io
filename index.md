@@ -24,7 +24,12 @@ The posts listed below are my attempt to publicly document my learning: updates 
 <ul class="posts-list">
 {% for post in site.posts %}
 <li>
-  <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+  <span class="post-title">
+    <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+  </span>
+  <span class="post-date">
+  {{ post.date | date: "%B %d, %Y" | downcase }}
+  </span>
   {% if post.description %}
   <br><em>{{ post.description }}</em>{% endif %}
 </li>
