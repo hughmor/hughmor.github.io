@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Photonic Computing Atlas</title>
+  <meta name="description" content="A living map of photonic / optical-computing research groups, startups, and the architectures they pioneer." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="lib/leaflet.css" />
+  <link rel="stylesheet" href="lib/MarkerCluster.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="app">
+    <!-- Sidebar -->
+    <aside id="sidebar">
+      <header class="brand">
+        <div class="brand-mark" aria-hidden="true"></div>
+        <div class="brand-text">
+          <h1>Photonic Computing Atlas</h1>
+          <p>Research groups, startups &amp; the architectures they pioneer</p>
+        </div>
+      </header>
+
+      <div class="search-wrap">
+        <input id="search" type="search" placeholder="Search people, groups, papers…" autocomplete="off" />
+      </div>
+
+      <div class="filters" id="arch-filters">
+        <!-- architecture filter chips injected here -->
+      </div>
+
+      <div class="toggles">
+        <label class="switch"><input type="checkbox" id="toggle-startups" checked /><span>Startups</span></label>
+        <label class="switch"><input type="checkbox" id="toggle-quantum" /><span>Quantum (hidden by default)</span></label>
+        <label class="switch"><input type="checkbox" id="toggle-lineage" checked /><span>Lineage web on hover</span></label>
+      </div>
+
+      <div class="list-head">
+        <div class="tabs">
+          <button class="tab active" data-tab="papers">Papers</button>
+          <button class="tab" data-tab="people">People</button>
+          <button class="tab" data-tab="companies">Companies</button>
+        </div>
+        <div class="sort-row">
+          <button class="sort-btn active" id="sort-primary">Most cited</button>
+          <button class="sort-btn" id="sort-secondary">Newest</button>
+        </div>
+      </div>
+      <ol id="paper-list" class="paper-list"><!-- papers injected --></ol>
+      <ul id="people-list" class="people-list hidden"><!-- people injected --></ul>
+      <ul id="company-list" class="people-list hidden"><!-- companies injected --></ul>
+
+      <footer class="side-foot">
+        <span id="stats"></span>
+        <span id="asof"></span>
+      </footer>
+    </aside>
+
+    <!-- Map + overlays -->
+    <main id="map-wrap">
+      <div id="map"></div>
+
+      <!-- Detail panel (person / group) -->
+      <section id="detail" class="detail hidden" aria-live="polite">
+        <button class="detail-close" id="detail-close" aria-label="Close">&times;</button>
+        <div id="detail-body"></div>
+      </section>
+
+      <!-- Legend -->
+      <div id="legend" class="legend">
+        <button class="legend-toggle" id="legend-toggle">Legend</button>
+        <div class="legend-body" id="legend-body"></div>
+      </div>
+
+      <!-- Active selection banner -->
+      <div id="selection-banner" class="selection-banner hidden">
+        <span id="selection-text"></span>
+        <button id="clear-selection">clear</button>
+      </div>
+    </main>
+  </div>
+
+  <script src="lib/leaflet.js"></script>
+  <script src="lib/leaflet.markercluster.js"></script>
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
