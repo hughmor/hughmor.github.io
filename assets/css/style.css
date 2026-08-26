@@ -1,18 +1,70 @@
-/* tweak these — no rebuild needed after push */
-:root{
-  --bg:rgb(40, 48, 63);
-  --txt:#cecece;
-  --date-text-colour:#999999;
-  --hdr:rgb(210, 195, 233);
+/* 1) base = light (so non-supporting browsers get light) */
+:root {
+  --bg:#ffffff;
+  --txt:#1a1a1a;
+  --date-text-colour:#555;
+  --hdr:#3a2e5f;
   --hdr1: var(--hdr);
   --hdr2: var(--hdr);
   --hdr3: var(--hdr);
-  --accent:rgb(200, 170, 245);
-  --code-bg:hsl(219, 22%, 15%);
-  --code-border:hsl(219, 22%, 25%);
-  --code-text:#e6e6e6;
-  --font:'inter',system-ui, sans-serif;
+  --accent:#5a35b8;
+  --code-bg:#f6f8fa;
+  --code-border:#e5e7eb;
+  --code-text:#111827;
+  --font:'inter',system-ui,sans-serif;
+
+  /* let form controls adopt theme */
+  color-scheme: light dark;
 }
+
+/* 2) if user’s os prefers dark AND no manual override, use dark */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg:rgb(40,48,63);
+    --txt:#cecece;
+    --date-text-colour:#999;
+    --hdr:rgb(210,195,233);
+    --hdr1: var(--hdr);
+    --hdr2: var(--hdr);
+    --hdr3: var(--hdr);
+    --accent:rgb(200,170,245);
+    --code-bg:hsl(219,22%,15%);
+    --code-border:hsl(219,22%,25%);
+    --code-text:#e6e6e6;
+  }
+}
+
+/* 3) explicit user overrides beat media query */
+:root[data-theme="light"] {
+  --bg:#ffffff;
+  --txt:#1a1a1a;
+  --date-text-colour:#555;
+  --hdr:#3a2e5f;
+  --accent:#5a35b8;
+  --code-bg:#f6f8fa;
+  --code-border:#e5e7eb;
+  --code-text:#111827;
+}
+
+:root[data-theme="dark"] {
+  --bg:rgb(40,48,63);
+  --txt:#cecece;
+  --date-text-colour:#999;
+  --hdr:rgb(210,195,233);
+  --accent:rgb(200,170,245);
+  --code-bg:hsl(219,22%,15%);
+  --code-border:hsl(219,22%,25%);
+  --code-text:#e6e6e6;
+}
+
+/* use the tokens */
+html, body { background:var(--bg); color:var(--txt); font-family:var(--font); }
+a { color:var(--accent); }
+code, pre { background:var(--code-bg); border:1px solid var(--code-border); color:var(--code-text); }
+
+/* optional: smooth but subtle theme transition */
+* { transition: background-color .2s linear, color .2s linear, border-color .2s linear; }
+
 
 *{box-sizing:border-box;margin:0;padding:0}
 body{
@@ -55,11 +107,16 @@ p { /* give every paragraph a comfy bottom margin */
 p + p { /* tighten successive paragraphs if you need newspaper vibes */
   margin-block-start: 0;       /* removes the extra top margin */
 }
+
 .home-page-header{
   display:flex;
   justify-content: space-between;
   align-items:baseline;              /* vertical centring */
   margin-bottom:1rem;              /* breathing room */
+}
+
+.socials a{
+  margin-left:.0rem;              /* gap between icons */
 }
 .lucide {
   color:var(--hdr);
@@ -119,6 +176,13 @@ pre code{
 .posts-list{ list-style-type:disc; margin-left:1.2rem; }
 .posts-list li{ margin-bottom:1rem; }
 .posts-list em{ font-size:0.9rem; opacity:0.8; }
+
+
+/* .posts-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+} */
 
 .posts-list .post-title {
   flex: 1;
