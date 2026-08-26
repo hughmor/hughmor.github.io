@@ -1,12 +1,13 @@
 ---
 layout: index
-title: hugh
+title: ħugh
 ---
 
 <!-- # hugh -->
 {% include social.html %}
 
-## hardware engineer
+## photonics engineer
+[cv](/cv/)
 
 <div></div>
 
