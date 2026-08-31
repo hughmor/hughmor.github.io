@@ -31,7 +31,6 @@ cv:
           - "**Simulation:** built system-level electronic-photonic co-simulation models (Verilog-A, Cadence, Python), parametrised by component-level simulation of the microring modulators and analog weight banks they contain."
           - "**Experiment:** built a high-baud-rate thin-film lithium niobate testbed from discrete components with collaborators, demonstrating a programmable 200 GOPS photonic Ising machine, published in *Nature*."
           - "**Hardware:** mixed-signal and RF PCB design, chip packaging and wirebonding, and automated optical/RF test and measurement."
-          - "*Research interests:* analog and neuromorphic computing, photonic integrated circuits, recurrent network dynamics."
           # - "**Relevant courses:** Nanophotonics, Reinforcement Learning, Quantum/Nonlinear Optics, Active silicon photonic devices"
       - institution: Queen's University
         area: Engineering Physics (Computing Option)
@@ -48,32 +47,21 @@ cv:
         start_date: 2026-03
         end_date: present
         location: Bristol, UK
-        summary: "Chip-top design of a monolithic electronic-photonic ASIC, plus the control and calibration stack for the company's large-scale optical demonstrator."
         highlights:
           - "Own the chip-top design of an ongoing tapeout on the GlobalFoundries 45SPCLO monolithic CMOS-photonics platform, integrating the analog, digital, and photonic blocks of the wider design team into one verified top level in Synopsys OptoCompiler."
           - "Designed the microring resonance-locking circuit: a transimpedance amplifier on the modulator drop port drives a comparator against a DAC-set reference, giving a 1-bit converter that an integral controller uses to hold each ring at its setpoint; verified in PrimeSim."
           - "Lead system-level floorplanning and routing across the electronic and photonic layers, reconciling waveguide routing constraints with signal and power distribution."
           - "Implement the digital control logic through the custom analog design flow, covering for the absence of a dedicated digital designer."
-          - "Built a Bayesian system-identification procedure that estimates every physical parameter of the demonstrator with calibrated uncertainties, replacing manual calibration."
-          - "Implemented the bias controller for the demonstrator's lithium niobate modulators and diagnosed the temperature sensitivity that moved their optical bias points."
+          - "Built the demonstrator's calibration stack: a lithium niobate modulator bias controller, a fix for temperature drift in the optical bias points, and Bayesian system identification of every physical parameter with uncertainties."
       - company: Milkshake Technologies, Inc.
         position: Senior Optical Engineer
         start_date: 2024-08
         end_date: 2024-12
         location: Kingston, ON
-        summary: "Technical due diligence on commercialising the photonic Ising machine of our *Nature* work on a thin-film lithium niobate platform."
         highlights:
-          - "Simulated the proposed architecture at scale and showed that solution success rate decreases exponentially with problem size."
+          - "Ran technical due diligence on commercialising the *Nature* photonic Ising machine, and showed that solution success rate decreases exponentially with problem size."
           - "Modelled compute efficiency per unit area for the thin-film lithium niobate architecture and found no competitive route, which informed the decision to stop the program."
           - "Extended that scaling analysis into ongoing work on the limits of hypermultiplexed photonic tensor cores."
-      - company: Queen's University
-        position: Teaching Assistant
-        start_date: 2019-09
-        end_date: 2025-12
-        location: Kingston, ON
-        summary:
-        highlights:
-          - "Courses of Instruction: analog/digital electronics, eng. phys. design projects, eng. phys. laboratory"
       # - company: GEOSLOPE International
       #   position: Student Programmer
       #   start_date: 2018-05
@@ -100,6 +88,14 @@ cv:
     #     summary:
     #     highlights:
     #       - Instructed the "Statistics" course on Udemy (60,000+ students, 200,000+ hours watched)
+    projects:
+      - name: '[fairchild](https://github.com/hughmor/fairchild)'
+        summary: Open-source electronic-photonic circuit simulator, in development
+        start_date: 2026-05
+        end_date: present
+        highlights:
+          - "Modified nodal analysis engine in Rust that solves optical fields and electrical unknowns in the same Newton iteration, removing the fixed-point loop between separate photonic and electronic tools."
+          - "Runs Verilog-A device models compiled to OSDI with transient noise, so a full link simulates from laser to transimpedance amplifier in one deck."
     skills:
       - label: Photonic Integrated Circuits
         details: "Foundry tapeout on AMF silicon photonics, GlobalFoundries 45SPCLO monolithic CMOS-photonics, and thin-film lithium niobate; microring modulators and weight banks; layout, floorplanning, waveguide routing, DRC/LVS"
@@ -120,11 +116,17 @@ cv:
       - label: "Ontario Graduate Scholarship"
         details: "Provincial merit award, $15,000, 2024"
         date: 2024-09
-    outreach:
-      - institution: Queen's Society of Optics
-        event: Tech-ila Tuesday
-        name: "Thinking in Hardware: The history and future of neuromorphic computing"
+    Outreach & Teaching:
+      - name: Scaling and Efficiency Metrics of TFLN Photonic Ising Machines
+        summary: Guest lecture, ETH Zurich (remote)
+        date: 2026-02
+      - name: "Thinking in Hardware: The history and future of neuromorphic computing"
+        summary: Public talk, Queen's Society of Optics
         date: 2025-10
+      - name: Teaching Assistant, Queen's University
+        summary: Analog and digital electronics, engineering physics design projects, engineering physics laboratories
+        start_date: 2019-09
+        end_date: 2025-12
     Selected Publications:
       - title: Programmable 200 GOPS Hopfield-inspired photonic Ising machine
         authors:
@@ -274,11 +276,11 @@ design:
   section_titles:
     type: with_full_line
     line_thickness: 0.5pt
-    space_above: 0.48cm
+    space_above: 0.42cm
     space_below: 0.3cm
   sections:
     allow_page_break: true
-    space_between_regular_entries: 0.34cm
+    space_between_regular_entries: 0.3cm
     show_time_spans_in: []
   entries:
     date_and_location_width: 4.15cm
@@ -293,7 +295,7 @@ design:
       bullet: •
       space_left: 0.4cm
       space_above: 0.25cm
-      space_between_items: 0.16cm
+      space_between_items: 0.14cm
       space_between_bullet_and_text: 0.3em
   templates:
     one_line_entry:
@@ -307,8 +309,8 @@ design:
       date_and_location_column: DATE
     normal_entry:
       main_column: |-
-        **NAME** -- **LOCATION**
-        SUMMARY
+        **NAME**
+        *SUMMARY*
         HIGHLIGHTS
       date_and_location_column: DATE
     experience_entry:
