@@ -9,8 +9,10 @@ cv:
       username: hughmorison
     - network: GitHub
       username: hughmor
-    - network: Google Scholar
-      username: grNoCPYAAAAJ
+  custom_connections:
+    - fontawesome_icon: graduation-cap
+      placeholder: scholar.google.com
+      url: https://scholar.google.com/citations?user=grNoCPYAAAAJ
   sections:
     education:
       - institution: Queen's University
