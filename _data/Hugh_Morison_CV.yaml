@@ -105,10 +105,10 @@ cv:
         details: "System-level electronic-photonic co-simulation, Verilog-A device models, FDTD & photonic circuit simulation, Bayesian inference & system identification, nonlinear dynamics"
       - label: Test & Measurement
         details: "Fibre-coupled PIC characterisation, optical spectrum analysers, high-speed oscilloscopes & arbitrary waveform generators, automated measurement in Python, wirebonding, packaging, UV lithography"
-      - label: EDA & Tools
-        details: "Synopsys OptoCompiler & PrimeSim, Cadence Virtuoso, KLayout, Ansys Lumerical, LTspice, KiCAD, Vivado, Git, Linux, LaTeX"
-      - label: Programming
-        details: "Python (NumPy/SciPy), C, C++, MATLAB, Verilog & Verilog-A"
+      - label: EDA
+        details: "Synopsys OptoCompiler & PrimeSim, Cadence Virtuoso, KLayout, Ansys Lumerical, LTspice, KiCAD, Vivado"
+      - label: Programming & Tools
+        details: "Python (NumPy/SciPy), C, C++, MATLAB, Verilog & Verilog-A, Git, Linux, LaTeX"
     awards:
       - label: "Mitacs Accelerate Fellowship (Huawei Canada)"
         details: "Industry-partnered research fellowship, $45,000, 2022"

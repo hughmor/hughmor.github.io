@@ -24,8 +24,8 @@ permalink: /cv/
   {% for ed in sections.education %}
   {% assign sd = ed.start_date %}
   {% assign edate = ed.end_date %}
-  {% capture start_str %}{% if sd %}{{ sd | date: date_fmt }}{% endif %}{% endcapture %}
-  {% capture end_str %}{% if edate %}{% if edate == "present" %}present{% else %}{{ edate | date: date_fmt }}{% endif %}{% endif %}{% endcapture %}
+  {% capture start_str %}{% if sd %}{{ sd | append: "-01" | date: date_fmt }}{% endif %}{% endcapture %}
+  {% capture end_str %}{% if edate %}{% if edate == "present" %}present{% else %}{{ edate | append: "-01" | date: date_fmt }}{% endif %}{% endif %}{% endcapture %}
   <li class="cv-item">
     <div class="cv-row">
       <span><strong>{{ ed.institution }}</strong>&nbsp;&nbsp;{{ ed.degree }} in {{ ed.area }}</span>
@@ -50,8 +50,8 @@ permalink: /cv/
   {% for ex in sections.experience %}
   {% assign sd = ex.start_date %}
   {% assign edate = ex.end_date %}
-  {% capture start_str %}{% if sd %}{{ sd | date: date_fmt }}{% endif %}{% endcapture %}
-  {% capture end_str %}{% if edate %}{% if edate == "present" %}present{% else %}{{ edate | date: date_fmt }}{% endif %}{% endif %}{% endcapture %}
+  {% capture start_str %}{% if sd %}{{ sd | append: "-01" | date: date_fmt }}{% endif %}{% endcapture %}
+  {% capture end_str %}{% if edate %}{% if edate == "present" %}present{% else %}{{ edate | append: "-01" | date: date_fmt }}{% endif %}{% endif %}{% endcapture %}
   <li class="cv-item">
     <div class="cv-row">
       <span><strong>{{ ex.position }}</strong>&nbsp;&nbsp;{{ ex.company }}</span>
@@ -61,6 +61,28 @@ permalink: /cv/
     {% if ex.highlights %}
     <ul class="cv-bullets">
       {% for h in ex.highlights %}<li>{{ h | markdownify | strip_newlines | remove: "<p>" | remove: "</p>" }}</li>{% endfor %}
+    </ul>
+    {% endif %}
+  </li>
+  {% endfor %}
+</ul>
+{% endif %}
+
+{% comment %} ========== projects ========== {% endcomment %}
+{% if sections.projects %}
+<h2>projects</h2>
+<ul class="cv-list">
+  {% for pr in sections.projects %}
+  {% capture pr_date %}{% if pr.start_date %}{{ pr.start_date | append: "-01" | date: date_fmt }} &ndash; {% if pr.end_date == "present" %}present{% else %}{{ pr.end_date | append: "-01" | date: date_fmt }}{% endif %}{% else %}{{ pr.date }}{% endif %}{% endcapture %}
+  <li class="cv-item">
+    <div class="cv-row">
+      <span><strong>{{ pr.name | markdownify | strip_newlines | remove: "<p>" | remove: "</p>" }}</strong></span>
+      <span class="cv-dates">{{ pr_date }}</span>
+    </div>
+    {% if pr.summary %}<div class="cv-subhead">{{ pr.summary }}</div>{% endif %}
+    {% if pr.highlights %}
+    <ul class="cv-bullets">
+      {% for h in pr.highlights %}<li>{{ h | markdownify | strip_newlines | remove: "<p>" | remove: "</p>" }}</li>{% endfor %}
     </ul>
     {% endif %}
   </li>
@@ -88,17 +110,19 @@ permalink: /cv/
 </ul>
 {% endif %}
 
-{% comment %} ========== outreach ========== {% endcomment %}
-{% if sections.outreach %}
-<h2>outreach</h2>
+{% comment %} ========== outreach & teaching ========== {% endcomment %}
+{% assign outreach = sections["Outreach & Teaching"] %}
+{% if outreach %}
+<h2>outreach &amp; teaching</h2>
 <ul class="cv-list">
-  {% for ev in sections.outreach %}
+  {% for ev in outreach %}
+  {% capture ev_date %}{% if ev.start_date %}{{ ev.start_date | append: "-01" | date: date_fmt }} &ndash; {% if ev.end_date == "present" %}present{% else %}{{ ev.end_date | append: "-01" | date: date_fmt }}{% endif %}{% else %}{{ ev.date | append: "-01" | date: date_fmt }}{% endif %}{% endcapture %}
   <li class="cv-item">
     <div class="cv-row">
       <span><strong>{{ ev.name }}</strong></span>
-      <span class="cv-dates">{{ ev.date | date: date_fmt }}</span>
+      <span class="cv-dates">{{ ev_date }}</span>
     </div>
-    <div class="cv-summary">{{ ev.institution }}{% if ev.event %} &middot; {{ ev.event }}{% endif %}</div>
+    {% if ev.summary %}<div class="cv-subhead">{{ ev.summary }}</div>{% endif %}
   </li>
   {% endfor %}
 </ul>
@@ -121,7 +145,7 @@ permalink: /cv/
       {% if pub.journal %}{% if pub.url %} ({{ pub.journal }}){% else %}{{ pub.journal }}{% endif %}{% endif %}
     </div>
     {% if pub.date %}
-      <div class="cv-pub-date">{{ pub.date | date: "%b %Y" }}</div>
+      <div class="cv-pub-date">{% assign dp = pub.date | split: "-" %}{% if dp.size > 1 %}{{ pub.date | append: "-01" | date: "%b %Y" }}{% else %}{{ pub.date }}{% endif %}</div>
     {% endif %}
   </li>
   {% endfor %}
