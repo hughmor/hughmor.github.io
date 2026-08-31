@@ -78,17 +78,44 @@ permalink: /cv/
 </ul>
 {% endif %}
 
+{% comment %} ========== awards ========== {% endcomment %}
+{% if sections.awards %}
+<h2>awards</h2>
+<ul class="cv-list">
+  {% for aw in sections.awards %}
+  <li class="cv-item"><strong>{{ aw.label }}:</strong> {{ aw.details }}</li>
+  {% endfor %}
+</ul>
+{% endif %}
+
+{% comment %} ========== outreach ========== {% endcomment %}
+{% if sections.outreach %}
+<h2>outreach</h2>
+<ul class="cv-list">
+  {% for ev in sections.outreach %}
+  <li class="cv-item">
+    <div class="cv-row">
+      <span><strong>{{ ev.name }}</strong></span>
+      <span class="cv-dates">{{ ev.date | date: date_fmt }}</span>
+    </div>
+    <div class="cv-summary">{{ ev.institution }}{% if ev.event %} &middot; {{ ev.event }}{% endif %}</div>
+  </li>
+  {% endfor %}
+</ul>
+{% endif %}
+
 {% comment %} ========== selected publications ========== {% endcomment %}
-{% if sections["selected publications"] %}
+{% if sections["Selected Publications"] %}
 <h2>selected publications</h2>
 <ol class="cv-pubs">
-  {% for pub in sections["selected publications"] %}
+  {% for pub in sections["Selected Publications"] %}
   <li class="cv-pub">
     <div class="cv-pub-title"><strong>{{ pub.title }}</strong></div>
     {% if pub.authors %}
       {% assign authors_str = pub.authors | join: ", " | markdownify | strip_newlines | remove: "<p>" | remove: "</p>" %}
       <div class="cv-pub-authors">{{ authors_str }}</div>
     {% endif %}
+    {% if pub.summary %}<div class="cv-pub-summary">{{ pub.summary }}</div>{% endif %}
     <div class="cv-pub-venue">
       {% if pub.url %}<a href="{{ pub.url }}">{{ pub.url }}</a>{% endif %}
       {% if pub.journal %}{% if pub.url %} ({{ pub.journal }}){% else %}{{ pub.journal }}{% endif %}{% endif %}

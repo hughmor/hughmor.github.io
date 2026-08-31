@@ -1,18 +1,22 @@
 cv:
   name: Hugh Morison
-  # location: Kingston, ON, Canada
+  headline: Photonic ICs and electronic-photonic co-design
+  location: Bristol, UK
   email: hugh.morison@queensu.ca
   phone: +1-403-618-1155
   website: http://hughmor.github.io/
   social_networks:
-    - network: LinkedIn
-      username: hughmorison
     - network: GitHub
       username: hughmor
+    - network: LinkedIn
+      username: hughmorison
   custom_connections:
     - fontawesome_icon: graduation-cap
-      placeholder: scholar.google.com
+      placeholder: Google Scholar
       url: https://scholar.google.com/citations?user=grNoCPYAAAAJ
+    - fontawesome_icon: language
+      placeholder: English, French
+      url:
   sections:
     education:
       - institution: Queen's University
@@ -60,7 +64,7 @@ cv:
         summary: "Technical due diligence on commercialising the photonic Ising machine of our *Nature* work on a thin-film lithium niobate platform."
         highlights:
           - "Simulated the proposed architecture at scale and showed that solution success rate decreases exponentially with problem size."
-          - "Modelled compute efficiency per unit area for the thin-film lithium niobate architecture and found no competitive route, which informed the decision to stop the programme."
+          - "Modelled compute efficiency per unit area for the thin-film lithium niobate architecture and found no competitive route, which informed the decision to stop the program."
           - "Extended that scaling analysis into ongoing work on the limits of hypermultiplexed photonic tensor cores."
       - company: Queen's University
         position: Teaching Assistant
@@ -109,8 +113,6 @@ cv:
         details: "Synopsys OptoCompiler & PrimeSim, Cadence Virtuoso, KLayout, Ansys Lumerical, LTspice, KiCAD, Vivado, Git, Linux, LaTeX"
       - label: Programming
         details: "Python (NumPy/SciPy), C, C++, MATLAB, Verilog & Verilog-A"
-      - label: Languages
-        details: English, French
     awards:
       - label: "Mitacs Accelerate Fellowship (Huawei Canada)"
         details: "Industry-partnered research fellowship, $45,000, 2022"
@@ -243,6 +245,7 @@ design:
       body: XCharter
       name: XCharter
       connections: XCharter
+      headline: XCharter
       section_titles: XCharter
     font_size:
       body: 10pt
@@ -257,23 +260,25 @@ design:
     underline: true
     show_external_link_icon: false
   header:
-    alignment: center
+    alignment: left
     photo_width: 3.5cm
-    space_below_name: 0.5cm
+    space_below_name: 0.25cm
+    space_below_headline: 0.3cm
     space_below_connections: 0.5cm
     connections:
       phone_number_format: national
       show_icons: true
+      display_urls_instead_of_usernames: false
       separator: ''
       space_between_connections: 0.3cm
   section_titles:
     type: with_full_line
     line_thickness: 0.5pt
-    space_above: 0.55cm
+    space_above: 0.48cm
     space_below: 0.3cm
   sections:
     allow_page_break: true
-    space_between_regular_entries: 0.4cm
+    space_between_regular_entries: 0.34cm
     show_time_spans_in: []
   entries:
     date_and_location_width: 4.15cm
@@ -286,9 +291,9 @@ design:
       space_left: 0cm
     highlights:
       bullet: •
-      space_left: 0cm
+      space_left: 0.4cm
       space_above: 0.25cm
-      space_between_items: 0.19cm
+      space_between_items: 0.16cm
       space_between_bullet_and_text: 0.3em
   templates:
     one_line_entry:
