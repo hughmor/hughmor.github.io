@@ -23,7 +23,7 @@ cv:
         highlights:
           - "**Silicon photonics:** contributed to multiple tapeouts on the AMF silicon photonic platform, from chip-level architecture and layout through packaging and post-fabrication test."
           - "**Simulation:** built system-level electronic-photonic co-simulation models (Verilog-A, Cadence, Python), parametrised by component-level simulation of the microring modulators and analog weight banks they contain."
-          - "**Experiment:** built a high-baud-rate thin-film lithium niobate testbed from discrete components with collaborators, demonstrating a programmable 200 GOPS photonic Ising machine (*Nature*, accepted)."
+          - "**Experiment:** built a high-baud-rate thin-film lithium niobate testbed from discrete components with collaborators, demonstrating a programmable 200 GOPS photonic Ising machine, published in *Nature*."
           - "**Hardware:** mixed-signal and RF PCB design, chip packaging and wirebonding, and automated optical/RF test and measurement."
           - "*Research interests:* analog and neuromorphic computing, photonic integrated circuits, recurrent network dynamics."
           # - "**Relevant courses:** Nanophotonics, Reinforcement Learning, Quantum/Nonlinear Optics, Active silicon photonic devices"
@@ -55,9 +55,11 @@ cv:
         start_date: 2024-08
         end_date: 2024-12
         location: Kingston, ON
-        summary:
+        summary: "Technical due diligence on commercialising the photonic Ising machine of our *Nature* work on a thin-film lithium niobate platform."
         highlights:
-          - "Design and analysis towards commercialising a photonic Ising machine on a thin-film lithium niobate platform"
+          - "Simulated the proposed architecture at scale and showed that solution success rate decreases exponentially with problem size."
+          - "Modelled compute efficiency per unit area for the thin-film lithium niobate architecture and found no competitive route, which informed the decision to stop the programme."
+          - "Extended that scaling analysis into ongoing work on the limits of hypermultiplexed photonic tensor cores."
       - company: Queen's University
         position: Teaching Assistant
         start_date: 2019-09
@@ -126,17 +128,18 @@ cv:
           - St-Arnault
           - '***Morison***'
           - et al.
-        journal: "Nature (accepted)"
-        url: https://arxiv.org/abs/2509.09581
-        date: 2025-08
-      - title: "Photonics-based Fully-Connected Hybrid Beamforming: Towards Scaling Up Massive MIMO [...]" #at Higher Frequency Bands"
+        summary: "Co-first author, equal contribution."
+        journal: "Nature 648, 576--584"
+        url: https://www.nature.com/articles/s41586-025-09838-7
+        date: 2025-12
+      - title: Photonic fully-connected hybrid beamforming using microring weight banks
         authors:
           - Nichols
           - '***Morison***'
           - et al.
-        journal: "Preprint"
-        url: https://doi.org/10.21203/rs.3.rs-4627859/v1
-        date: —
+        journal: "Communications Engineering 4, 201"
+        url: https://www.nature.com/articles/s44172-025-00532-0
+        date: 2025-11
       - title: 120 GOPS Photonic Tensor Core in Thin-Film Lithium Niobate for Inference and In Situ Training
         authors:
           - Lin
@@ -159,6 +162,12 @@ cv:
         journal: Physical Review Applied
         date: 2024-03
         url: https://journals.aps.org/prapplied/abstract/10.1103/PhysRevApplied.21.034013
+      - title: "Scaling of hypermultiplexed photonic tensor cores"
+        authors:
+          - '***Morison***'
+          - et al.
+        journal: "Manuscript in preparation"
+        date: 2026
       # - title: Silicon Photonic Architecture for Training Deep Neural Networks with Direct Feedback Alignment
       #   authors:
       #     - Filipovich
@@ -305,6 +314,7 @@ design:
       main_column: |-
         **TITLE**
         AUTHORS
+        SUMMARY
         URL (JOURNAL)
       date_and_location_column: DATE
 locale:
