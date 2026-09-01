@@ -95,9 +95,11 @@
   // ---- map ----
   const map = L.map("map", { zoomControl: true, worldCopyJump: true, minZoom: 2, maxZoom: 19 })
     .setView([38, -20], 3);
-  L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png", {
-    subdomains: "abcd", maxZoom: 20, maxNativeZoom: 20,
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
+  // CARTO's free basemaps now stamp "API KEY REQUIRED" into every tile image, so
+  // this uses Esri's dark canvas instead. No key, and note the {z}/{y}/{x} order.
+  L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}", {
+    maxZoom: 20, maxNativeZoom: 20,
+    attribution: 'Tiles &copy; <a href="https://www.esri.com">Esri</a>, HERE, Garmin, &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
   }).addTo(map);
   const webLayer = L.layerGroup().addTo(map);
   // cluster overlapping pins; they split apart on zoom and spiderfy (pop out to a ring of faces) on click
