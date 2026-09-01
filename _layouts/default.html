@@ -34,16 +34,13 @@
   </script>
   <body>
     <main>
-        <div class="topbar">
-          <p class="home-link"><a href="{{ '/' | relative_url }}">home</a></p>
-          {% include theme-toggle.html %}
-        </div>
+        <p class="home-link"><a href="{{ '/' | relative_url }}">home</a></p>
         <h1>{{ page.title }}</h1>
         <p class="post-date">{{ page.date | date: "%B %Y" }}</p>
         {{ content }}
     </main>
     <footer>
-        <p>© {{ site.time | date: "%Y" }} hughmor</p>
+        <p>© {{ site.time | date: "%Y" }} hughmor &middot; {% include theme-toggle.html %}</p>
     </footer>
     {% include theme-script.html %}
   </body>
