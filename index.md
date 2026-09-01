@@ -23,7 +23,7 @@ I'm currently a research engineer at Hartley Ultrafast, where we're working to g
     <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
   </span>
   <span class="post-date">
-  {{ post.date | date: "%B %d, %Y" | downcase }}
+  {{ post.date | date: "%B %Y" | downcase }}
   </span>
   {% if post.description %}
   <br><em>{{ post.description }}</em>{% endif %}
