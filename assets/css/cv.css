@@ -6,3 +6,5 @@
 .cv-pubs { padding-left: 1.2rem; }
 .cv-pub-title { margin-top: 0.4rem; }
 .cv-pub-venue, .cv-pub-date { font-size: 0.95em; opacity: 0.85; }
+.cv-pub-summary { font-size: 0.95em; font-style: italic; }
+.cv-subhead { font-size: 0.95em; font-style: italic; opacity: 0.85; }
