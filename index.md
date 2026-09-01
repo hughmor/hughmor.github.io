@@ -13,7 +13,7 @@ title: ħugh
 
 I'm an engineer working on silicon photonic ASICs for accelerating AI. I've been fascinated by AI since 2015 and it's been incredible to watch the field go from the academic interest it was when I was reading Bostrom's Superintelligence and playing around with simple neural nets in my undergrad, to it smashing onto the public scene, and now I'm working with agentic AI systems every day I sit down to work. While the algorithms and models often get the focus in discussions of AI, I think the hardware and the infrastructure that they rely on are so much more fascinating and important.
 
-I'm currently a research engineer at Hartley Ultrafast, where we're working to get silicon photonic neural networks to beat the latency that's possible with digital electronics
+I'm currently a research engineer at Hartley Ultrafast, where we're working to crush the latency in silicon photonic neural network accelerators to beat digital electronics.
 
 ## posts
 <ul class="posts-list">
