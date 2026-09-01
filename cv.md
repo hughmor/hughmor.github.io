@@ -11,6 +11,7 @@ permalink: /cv/
 <p>
   {% if cv.location %}{{ cv.location }} &middot; {% endif %}
   <a href="mailto:{{ cv.email }}">{{ cv.email }}</a>
+  &middot; <a href="{{ '/assets/Hugh_Morison_CV.pdf' | relative_url }}">download pdf</a>
 </p>
 
 {% comment %} util: date rendering (supports literal 'present') {% endcomment %}

@@ -1,0 +1,34 @@
+{%- comment -%}
+Toggle handler. head-theme.html already applied any saved override before paint,
+so this only has to react to clicks and to OS changes.
+{%- endcomment -%}
+<script>
+  (function () {
+    var root = document.documentElement;
+    var KEY = 'theme';
+    var mq = matchMedia('(prefers-color-scheme: dark)');
+    var read = function () { try { return localStorage.getItem(KEY); } catch (e) { return null; } };
+    var effective = function () { return root.dataset.theme || (mq.matches ? 'dark' : 'light'); };
+
+    // keep the mobile browser chrome in step with the page background
+    var paint = function () {
+      var meta = document.querySelector('meta[name="theme-color"]');
+      if (meta) meta.content = getComputedStyle(root).getPropertyValue('--bg').trim();
+    };
+    paint();
+
+    Array.prototype.forEach.call(document.querySelectorAll('.theme-toggle'), function (btn) {
+      btn.addEventListener('click', function () {
+        var next = effective() === 'dark' ? 'light' : 'dark';
+        root.dataset.theme = next;
+        try { localStorage.setItem(KEY, next); } catch (e) {}
+        paint();
+      });
+    });
+
+    // with no manual override, follow the OS live
+    mq.addEventListener('change', function () {
+      if (!read()) { delete root.dataset.theme; paint(); }
+    });
+  })();
+</script>

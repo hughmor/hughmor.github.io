@@ -2,8 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="color-scheme" content="light dark">
-    <meta name="theme-color" content="#ffffff">
+    {% include head-theme.html %}
     <title>{{ page.title }}</title>
     <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="stylesheet" href="{{ '/assets/css/cv.css' | relative_url }}">
@@ -35,10 +34,10 @@
   </script>
   <body>
     <main>
-        <button id="theme-toggle" aria-label="toggle theme" aria-pressed="false">toggle theme</button>
-        <p class="home-link">
-            <a href="{{ '/' | relative_url }}">home</a>
-        </p>
+        <div class="topbar">
+          <p class="home-link"><a href="{{ '/' | relative_url }}">home</a></p>
+          {% include theme-toggle.html %}
+        </div>
         <h1>{{ page.title }}</h1>
         <p class="post-date">{{ page.date | date: "%B %Y" }}</p>
         {{ content }}
@@ -46,51 +45,6 @@
     <footer>
         <p>© {{ site.time | date: "%Y" }} hughmor</p>
     </footer>
-    <script>
-    (() => {
-      const root = document.documentElement;
-      const KEY = 'theme'; // 'light' | 'dark'
-      const btn = document.getElementById('theme-toggle');
-
-      // 1) initialize from localStorage or OS
-      const saved = localStorage.getItem(KEY);
-      if (saved === 'light' || saved === 'dark') {
-        root.dataset.theme = saved;
-      } else {
-        // no override: let media query pick default (do nothing)
-      }
-
-      // keep aria state in sync
-      const syncAria = () => {
-        const t = root.dataset.theme || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-        if (btn) btn.setAttribute('aria-pressed', String(t === 'dark'));
-      };
-      syncAria();
-
-      // 2) toggle handler
-      btn?.addEventListener('click', () => {
-        const current = root.dataset.theme || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-        const next = current === 'dark' ? 'light' : 'dark';
-        root.dataset.theme = next;
-        localStorage.setItem(KEY, next);
-        syncAria();
-
-        // optional: set browser ui color on mobile
-        const meta = document.querySelector('meta[name="theme-color"]') || (() => {
-          const m = document.createElement('meta'); m.name = 'theme-color'; document.head.appendChild(m); return m;
-        })();
-        const styles = getComputedStyle(root);
-        meta.content = styles.getPropertyValue('--bg').trim();
-      });
-
-      // 3) if user changes os theme and there’s NO manual override, adapt live
-      matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
-        if (!localStorage.getItem(KEY)) {
-          delete root.dataset.theme;
-          syncAria();
-        }
-      });
-    })();
-    </script>
+    {% include theme-script.html %}
   </body>
 </html>

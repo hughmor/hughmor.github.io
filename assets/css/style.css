@@ -115,17 +115,72 @@ p + p { /* tighten successive paragraphs if you need newspaper vibes */
   margin-bottom:1rem;              /* breathing room */
 }
 
-.socials a{
-  margin-left:.0rem;              /* gap between icons */
+.socials{
+  display:flex;
+  align-items:center;
+  gap:.55rem;
+  /* the header row aligns on baselines, which an icon row has no useful one of */
+  align-self:center;
 }
-.lucide {
+.social-link{
+  display:inline-flex;
   color:var(--hdr);
-  width:1.5em;                  /* size */
-  height:1.5em;
-  stroke-width:1.5;            /* line weight */
-  margin-right:.5rem;          /* breathing room */
-  vertical-align:baseline;/* tiny downward shim */
+  line-height:0;
 }
+/* brand marks are filled paths; the theme icons are stroked and set their own */
+.icon{
+  width:1.5em;
+  height:1.5em;
+  fill:currentColor;
+}
+.theme-toggle .icon{ fill:none; }
+
+/* --- theme toggle: a plain icon, no chrome until you reach for it --- */
+.theme-toggle{
+  -webkit-appearance:none;
+  appearance:none;
+  background:none;
+  border:0;
+  padding:.25rem;
+  margin:0;
+  color:var(--hdr);
+  line-height:0;
+  cursor:pointer;
+  border-radius:6px;
+  opacity:.65;
+  transition:opacity .15s ease, background-color .15s ease;
+}
+.theme-toggle:hover{
+  opacity:1;
+  background:color-mix(in srgb, var(--txt) 10%, transparent);
+}
+.theme-toggle:focus-visible{
+  opacity:1;
+  outline:2px solid var(--accent);
+  outline-offset:2px;
+}
+
+/* Which icon shows follows the same three layers as the colour tokens, so it is
+   right on the first paint rather than after a script runs. */
+.theme-toggle .icon-sun{ display:none; }
+.theme-toggle .icon-moon{ display:block; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .theme-toggle .icon-sun{ display:block; }
+  :root:not([data-theme="light"]) .theme-toggle .icon-moon{ display:none; }
+}
+:root[data-theme="dark"] .theme-toggle .icon-sun{ display:block; }
+:root[data-theme="dark"] .theme-toggle .icon-moon{ display:none; }
+:root[data-theme="light"] .theme-toggle .icon-sun{ display:none; }
+:root[data-theme="light"] .theme-toggle .icon-moon{ display:block; }
+
+/* --- topbar on post pages: home on the left, theme on the right --- */
+.topbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:1rem;
+}
+.topbar .home-link{ margin:0; }
 
 /* --- blog post date style --- */
 .post-date {

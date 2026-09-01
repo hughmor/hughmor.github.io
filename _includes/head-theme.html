@@ -1,0 +1,14 @@
+{%- comment -%}
+Goes in <head>. Applies a saved theme override before first paint, otherwise the
+page renders in the OS theme and then flips once the body script runs.
+{%- endcomment -%}
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#ffffff">
+<script>
+  (function () {
+    try {
+      var t = localStorage.getItem('theme');
+      if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t;
+    } catch (e) { /* private mode: fall back to the OS preference */ }
+  })();
+</script>

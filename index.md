@@ -4,7 +4,6 @@ title: ħugh
 ---
 
 <!-- # hugh -->
-{% include social.html %}
 
 ## photonics engineer ([cv](/cv/))
 
