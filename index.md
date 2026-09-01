@@ -6,20 +6,14 @@ title: ħugh
 <!-- # hugh -->
 {% include social.html %}
 
-## photonics engineer
-[cv](/cv/)
+## photonics engineer ([cv](/cv/))
+
 
 <div></div>
 
-My background is in engineering physics, and I did my PhD working on neuromorphic computing using analog photonic substrates. I'm passionate about developing intelligent processing systems; you can check out my Github, Google Scholar, and LinkedIn profiles using the links above.
+I'm an engineer working on silicon photonic ASICs for accelerating AI. I've been fascinated by AI since 2015 and it's been incredible to watch the field go from the academic interest it was when I was reading Bostrom's Superintelligence and playing around with simple neural nets in my undergrad, to it smashing onto the public scene, and now I'm working with agentic AI systems every day I sit down to work. While the algorithms and models often get the focus in discussions of AI, I think the hardware and the infrastructure that they rely on are so much more fascinating and important.
 
-I believe that analog systems may one day catch up with and outpace digital ones, but I realized at some point during my PhD that starting my career in analog computing, before having a true understanding of modern computer architecture, was to my detriment. When getting into FPGAs (AMD RFSoCs), I was exposed to my own misunderstandings of how digital systems work, and this lit a fire in me that led me back into learning about digital systems, and I've spent the past while trying to teach myself all the basics that any competent computer engineer should know.
-
-The posts listed below are my attempt to publicly document my learning: updates on projects I'm working on, takeaways from books I'm reading, results of coding experiments, and whatever else I decide fits the theme. It's still very much a work in progress, but I hope anybody who comes across it finds it useful!
-
-<!-- I'm still pretty bullish on analog computing in the long run, because my strong intuition is that the fundamental efficiency of analog hardware will eventually win out as we strive to make ever more intelligent and adaptable systems that consume less and less power, but in the meantime the picture is more murky. -->
- <!-- but I think asynchronous hybrid computers (analog + digital) are a really exciting avenue for the development of autonomous intelligent systems. -->
-
+I'm currently a research engineer at Hartley Ultrafast, where we're working to get silicon photonic neural networks to beat the latency that's possible with digital electronics
 
 ## posts
 <ul class="posts-list">
