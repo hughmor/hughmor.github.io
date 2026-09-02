@@ -27,7 +27,7 @@ cv:
         location: Kingston, ON
         summary: "Thesis (in preparation): Information Processing with Dynamical Systems in Integrated Photonics"
         highlights:
-          - "**Silicon photonics:** contributed to multiple tapeouts on the AMF silicon photonics platform, from chip-level architecture and layout through packaging and post-fabrication test."
+          - "**Silicon photonics:** contributed to multiple tapeouts on the AMF silicon photonics platform, from chip-level architecture and layout through packaging and post-fabrication test; focused on analog neural networks."
           - "**Simulation:** built system-level electronic-photonic co-simulation models (Verilog-A, Cadence, Python), parametrised by component-level simulation of microring modulators."
           - "**Experiment:** built a 100 GBaud thin-film lithium niobate testbed from discrete components (w/ collaborators), demonstrating a programmable 200 GOPS photonic Ising machine, published in *Nature*."
           - "**Hardware:** mixed-signal and RF PCB design, chip packaging and wirebonding, and automated optical/RF test and measurement."
@@ -48,11 +48,11 @@ cv:
         end_date: present
         location: Bristol, UK
         highlights:
-          - "Led the chip-top design of an ongoing tapeout on a monolithic CMOS-photonics platform, integrating the analog, digital, and photonic blocks of the wider design team into one verified top level in Synopsys OptoCompiler."
+          - "Led the chip-top design for a tapeout on a monolithic CMOS-photonics platform, integrating the analog, digital, and photonic blocks into a verified top level in Synopsys OptoCompiler."
           - "Designed the analog front end and data conversion for photonic modulator control, locking across process and temperature, together with its control law; verified in PrimeSim."
           - "Owned system-level floorplanning and routing across the electronic and photonic layers, reconciling waveguide constraints with signal and power distribution, and contributed to its digital blocks at schematic and routing level."
           - "Rebuilt the calibration stack for the company's large-scale opto-mechanical demonstrator around a unified Bayesian system identification that estimates physical parameters with uncertainties, and designed its modulator bias controller."
-          - "Provided the machine-learning view behind chip-top architecture decisions, linking target model classes to the numerical precision the analog datapath has to support."
+          - "Provided the machine learning view behind chip-top architecture decisions, linking target model classes to the numerical precision the analog datapath has to support."
       - company: Milkshake Technologies, Inc.
         position: Senior Optical Engineer
         start_date: 2024-08
@@ -76,21 +76,21 @@ cv:
         start_date: 2026-05
         end_date: present
         highlights:
-          - "Built a modified-nodal-analysis engine in Rust that simultaneously solves optical fields and electrical unknowns in the same iteration, removing the co-simulation overhead between separate photonic and electronic tools."
+          - "Built a modified-nodal-analysis engine in Rust that simultaneously solves optical fields and electrical unknowns, removing the co-simulation overhead between separate photonic and electronic tools."
           - "Photonic Verilog-A device models compile to OSDI with transient noise, so a full link can be simulated from laser to receiver in one netlist."
     skills:
       - label: Photonic Integrated Circuits
-        details: "Foundry tapeout on AMF silicon photonics, monolithic CMOS-photonics, and thin-film lithium niobate; microring modulators and weight banks; layout, floorplanning, waveguide routing, DRC/LVS"
+        details: "Foundry tapeout on AMF silicon photonics, monolithic CMOS-photonics, and thin-film lithium niobate; microring modulators and filters; layout, floorplanning, waveguide routing, DRC/LVS"
       - label: Electronics
-        details: "Analog mixed-signal design (TIA, comparator, DAC, closed-loop control), digital logic in a custom design flow, RF & mixed-signal PCB design, FPGA/RFSoC data acquisition"
+        details: "Analog mixed-signal design, digital logic, RF & mixed-signal PCB design, FPGA/RFSoC data acquisition"
       - label: Modelling & Simulation
-        details: "System-level electronic-photonic co-simulation, Verilog-A device models, FDTD & photonic circuit simulation, Bayesian inference & system identification, nonlinear dynamics"
+        details: "System-level electronic-photonic co-simulation, Verilog-A device models, FDTD & photonic circuit simulation, Bayesian inference & system identification, differentiable simulation & gradient-based design, nonlinear dynamics"
       - label: Test & Measurement
         details: "Fibre-coupled PIC characterisation, optical spectrum analysers, high-speed oscilloscopes & arbitrary waveform generators, automated measurement in Python, wirebonding, packaging, UV lithography"
       - label: EDA
         details: "Synopsys OptoCompiler & PrimeSim, Cadence Virtuoso, KLayout, Ansys Lumerical, LTspice, KiCAD, Vivado"
       - label: Programming & Tools
-        details: "Python (NumPy/SciPy), C, C++, MATLAB, Verilog & Verilog-A, Git, Linux, LaTeX"
+        details: "Python (PyTorch, JAX), C, C++, MATLAB, Verilog & Verilog-A, Git, Linux, LaTeX"
     awards:
       - label: "Mitacs Accelerate Fellowship (Huawei Canada)"
         details: "Industry-partnered research fellowship, $45,000, 2022"
