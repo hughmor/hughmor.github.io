@@ -22,3 +22,7 @@ log/
 
 # renderCV
 rendercv_output
+
+# ---- documents ----
+*.pdf
+!assets/Hugh_Morison_CV.pdf

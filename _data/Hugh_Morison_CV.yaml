@@ -4,32 +4,32 @@ cv:
   location: Bristol, UK
   email: hugh.morison@queensu.ca
   phone: +1-403-618-1155
-  website: http://hughmor.github.io/
+  # website: http://hughmor.github.io/
+  custom_connections:
+    - fontawesome_icon: language
+      placeholder: English, French
+      url:
+    - fontawesome_icon: graduation-cap
+      placeholder: Google Scholar
+      url: https://scholar.google.com/citations?user=grNoCPYAAAAJ
   social_networks:
     - network: GitHub
       username: hughmor
     - network: LinkedIn
       username: hughmorison
-  custom_connections:
-    - fontawesome_icon: graduation-cap
-      placeholder: Google Scholar
-      url: https://scholar.google.com/citations?user=grNoCPYAAAAJ
-    - fontawesome_icon: language
-      placeholder: English, French
-      url:
   sections:
     education:
       - institution: Queen's University
         area: Applied Physics
         degree: PhD
         start_date: 2019-09
-        end_date: present
+        end_date: 2026-12
         location: Kingston, ON
-        summary: "Thesis (in preparation): design, simulation, and experimental demonstration of analog optical computing platforms."
+        summary: "Thesis (in preparation): Information Processing with Dynamical Systems in Integrated Photonics"
         highlights:
-          - "**Silicon photonics:** contributed to multiple tapeouts on the AMF silicon photonic platform, from chip-level architecture and layout through packaging and post-fabrication test."
-          - "**Simulation:** built system-level electronic-photonic co-simulation models (Verilog-A, Cadence, Python), parametrised by component-level simulation of the microring modulators and analog weight banks they contain."
-          - "**Experiment:** built a high-baud-rate thin-film lithium niobate testbed from discrete components with collaborators, demonstrating a programmable 200 GOPS photonic Ising machine, published in *Nature*."
+          - "**Silicon photonics:** contributed to multiple tapeouts on the AMF silicon photonics platform, from chip-level architecture and layout through packaging and post-fabrication test."
+          - "**Simulation:** built system-level electronic-photonic co-simulation models (Verilog-A, Cadence, Python), parametrised by component-level simulation of microring modulators."
+          - "**Experiment:** built a 100 GBaud thin-film lithium niobate testbed from discrete components (w/ collaborators), demonstrating a programmable 200 GOPS photonic Ising machine, published in *Nature*."
           - "**Hardware:** mixed-signal and RF PCB design, chip packaging and wirebonding, and automated optical/RF test and measurement."
           # - "**Relevant courses:** Nanophotonics, Reinforcement Learning, Quantum/Nonlinear Optics, Active silicon photonic devices"
       - institution: Queen's University
@@ -48,11 +48,11 @@ cv:
         end_date: present
         location: Bristol, UK
         highlights:
-          - "Own the chip-top design of an ongoing tapeout on the GlobalFoundries 45SPCLO monolithic CMOS-photonics platform, integrating the analog, digital, and photonic blocks of the wider design team into one verified top level in Synopsys OptoCompiler."
-          - "Designed the microring resonance-locking circuit: a transimpedance amplifier on the modulator drop port drives a comparator against a DAC-set reference, giving a 1-bit converter that an integral controller uses to hold each ring at its setpoint; verified in PrimeSim."
-          - "Lead system-level floorplanning and routing across the electronic and photonic layers, reconciling waveguide routing constraints with signal and power distribution."
-          - "Implement the digital control logic through the custom analog design flow, covering for the absence of a dedicated digital designer."
-          - "Built the demonstrator's calibration stack: a lithium niobate modulator bias controller, a fix for temperature drift in the optical bias points, and Bayesian system identification of every physical parameter with uncertainties."
+          - "Led the chip-top design of an ongoing tapeout on a monolithic CMOS-photonics platform, integrating the analog, digital, and photonic blocks of the wider design team into one verified top level in Synopsys OptoCompiler."
+          - "Designed the analog front end and data conversion for photonic modulator control, locking across process and temperature, together with its control law; verified in PrimeSim."
+          - "Owned system-level floorplanning and routing across the electronic and photonic layers, reconciling waveguide constraints with signal and power distribution, and contributed to its digital blocks at schematic and routing level."
+          - "Rebuilt the calibration stack for the company's large-scale opto-mechanical demonstrator around a unified Bayesian system identification that estimates physical parameters with uncertainties, and designed its modulator bias controller."
+          - "Provided the machine-learning view behind chip-top architecture decisions, linking target model classes to the numerical precision the analog datapath has to support."
       - company: Milkshake Technologies, Inc.
         position: Senior Optical Engineer
         start_date: 2024-08
@@ -70,35 +70,17 @@ cv:
       #   summary:
       #   highlights:
           # - Built ASP.NET features including payment system + CRM integration
-    # projects:
-    #   - name: '[Example Project](https://example.com)'
-    #     date:
-    #     start_date: 2024-05
-    #     end_date: present
-    #     location:
-    #     summary: A web application for writing essays
-    #     highlights:
-    #       - Launched an [iOS app](https://example.com) in 09/2024 that currently has 10k+ monthly active users
-    #       - The app is made open-source (3,000+ stars [on GitHub](https://github.com))
-    #   - name: '[Teaching on Udemy](https://example.com)'
-    #     date: Fall 2023
-    #     start_date:
-    #     end_date:
-    #     location:
-    #     summary:
-    #     highlights:
-    #       - Instructed the "Statistics" course on Udemy (60,000+ students, 200,000+ hours watched)
     projects:
       - name: '[fairchild](https://github.com/hughmor/fairchild)'
         summary: Open-source electronic-photonic circuit simulator, in development
         start_date: 2026-05
         end_date: present
         highlights:
-          - "Modified nodal analysis engine in Rust that solves optical fields and electrical unknowns in the same Newton iteration, removing the fixed-point loop between separate photonic and electronic tools."
-          - "Runs Verilog-A device models compiled to OSDI with transient noise, so a full link simulates from laser to transimpedance amplifier in one deck."
+          - "Built a modified-nodal-analysis engine in Rust that simultaneously solves optical fields and electrical unknowns in the same iteration, removing the co-simulation overhead between separate photonic and electronic tools."
+          - "Photonic Verilog-A device models compile to OSDI with transient noise, so a full link can be simulated from laser to receiver in one netlist."
     skills:
       - label: Photonic Integrated Circuits
-        details: "Foundry tapeout on AMF silicon photonics, GlobalFoundries 45SPCLO monolithic CMOS-photonics, and thin-film lithium niobate; microring modulators and weight banks; layout, floorplanning, waveguide routing, DRC/LVS"
+        details: "Foundry tapeout on AMF silicon photonics, monolithic CMOS-photonics, and thin-film lithium niobate; microring modulators and weight banks; layout, floorplanning, waveguide routing, DRC/LVS"
       - label: Electronics
         details: "Analog mixed-signal design (TIA, comparator, DAC, closed-loop control), digital logic in a custom design flow, RF & mixed-signal PCB design, FPGA/RFSoC data acquisition"
       - label: Modelling & Simulation
@@ -168,12 +150,12 @@ cv:
         journal: Physical Review Applied
         date: 2024-03
         url: https://journals.aps.org/prapplied/abstract/10.1103/PhysRevApplied.21.034013
-      - title: "Scaling of hypermultiplexed photonic tensor cores"
-        authors:
-          - '***Morison***'
-          - et al.
-        journal: "Manuscript in preparation"
-        date: 2026
+      # - title: "On the scaling of hypermultiplexed photonic tensor cores"
+      #   authors:
+      #     - '***Morison***'
+      #     - et al.
+      #   journal: "Manuscript in preparation"
+      #   date: 2026
       # - title: Silicon Photonic Architecture for Training Deep Neural Networks with Direct Feedback Alignment
       #   authors:
       #     - Filipovich
@@ -241,7 +223,7 @@ design:
     top_note: rgb(128, 128, 128)
   typography:
     line_spacing: 0.6em
-    alignment: justified
+    alignment: justified-with-no-hyphenation
     date_and_location_column_alignment: right
     font_family:
       body: XCharter

@@ -18,6 +18,7 @@ Optimizing hardware platforms to best support intelligent computing has always b
 I've been driven by the question of whether we can get analog systems to catch up to the dominance that digital processors have commanded, and AI seems like the natural place where they should excel if we can find the right match between algorithm and hardware.
 For a long time I took digital systems for granted and for the past couple of years I've tried to rectify that gap by writing CUDA kernels and Verilog to learn about computer architecture.
 I believe there is a lot of interesting work to be done in the future designing intelligent systems right up at the analog-digital interface.
+The posts below will span many topics, from programming experiments to photonics simulations, to unstructured write ups of things that I'm thinking about.
 
 ## posts
 <ul class="posts-list">
