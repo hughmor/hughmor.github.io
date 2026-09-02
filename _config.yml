@@ -2,3 +2,10 @@ title: "hugh's site"
 markdown: kramdown   # default anyway, just explicit
 theme: null          # disable gh-pages default theme
 permalink: /:year/:month/:day/:title/
+
+# Dev server only. Without Cache-Control the browser heuristically caches CSS and
+# serves a stale copy while --livereload happily refreshes the HTML, so edits look
+# like they did not apply. Has no effect on the built site or on GitHub Pages.
+webrick:
+  headers:
+    Cache-Control: no-store, no-cache, must-revalidate
