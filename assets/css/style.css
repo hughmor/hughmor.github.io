@@ -219,6 +219,29 @@ pre code{
   white-space: nowrap;
 }
 
+/* Global image width */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* captioned images: <figure><img><figcaption>caption</figcaption></figure> */
+figure {
+  margin: 1.5rem 0;
+}
+figure img {
+  margin: 0 auto;
+}
+figcaption {
+  margin-top: .5rem;
+  font-size: .875em;
+  font-style: italic;
+  line-height: 1.5;
+  color: var(--date-text-colour);
+  text-align: center;
+}
+
 
 
 /* block quote styling */

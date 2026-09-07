@@ -11,8 +11,8 @@ title: ħugh
 
 I'm an engineer working on silicon photonic ASICs for accelerating AI.
 I'm currently a research engineer at Hartley Ultrafast, where we're working to crush the latency in silicon photonic neural network accelerators to beat digital electronics.
-In my free time recently, I've been working on what I think is the most feature-complete open-source optoelectronic circuit simulator in the world, [fairchild](https://github.com/hughmor/fairchild).
-I'm based in Bristol in the UK at the moment, but I'll be relocating back to my hometown in Calgary, Canada in October 2026.
+In my free time recently, I've been working on what I think is the most feature-complete open-source optoelectronic circuit simulator out there, [fairchild](https://github.com/hughmor/fairchild).
+I'm based in Bristol in the UK at the moment, but I'll be relocating to Calgary, Canada in October 2026.
 
 Optimizing hardware platforms to best support intelligent computing has always been fascinating to me, and I fell into the photonics community in 2018 and have been working at that intersection since.
 I've been driven by the question of whether we can get analog systems to catch up to the dominance that digital processors have commanded, and AI seems like the natural place where they should excel if we can find the right match between algorithm and hardware.
