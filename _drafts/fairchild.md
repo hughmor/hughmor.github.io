@@ -1,22 +1,20 @@
 ---
 layout: default
 title: "fairchild: photonic-electronic cosimulation"
-description: "an open-source time-domain electro-optic circuit simulator i've been building"
+description: "an open-source time-domain electro-optic SPICE simulator i've been building"
 ---
 
-For most of my PhD, simulating a photonic link meant running two tools and passing files between them. The optical side lives in a frequency-domain S-matrix solver, the electrical side lives in SPICE, and the two meet at a fixed-point loop that you babysit until it stops moving. It works, sort of. But the moment you want something that genuinely couples — a photodiode feeding a TIA whose output drives the modulator that the photodiode is watching — you're no longer simulating a circuit, you're iterating between two descriptions of one and hoping they agree.
+![fairchild]({{ "assets/img/fairchild/logo_dark.svg" | relative_url }})
 
-So I've been building [fairchild](https://github.com/hughmor/fairchild), which does the obvious thing instead: it treats optical fields as ordinary MNA unknowns and solves them alongside the currents and voltages, in one Newton iteration.
+For most of my PhD, simulating a photonic link always raised the problem of cosimulation of optics and electronics. The optical circuit side was usually designed via a frequency-domain S-matrix solver, while the electrical side lives in SPICE. Cosimulation involved looping back and forth between the tools, which... sort of works. Often, we would just settle for a good optical simulation and a good electrical simulation, and not bother trying to cosimulate the whole thing. But the moment you want something that's genuinely coupled—an optical-electronic-optical link, a travelling wave modulator, time dynamics of a resonator—this approach breaks down, since there's you are going back and forth between the optical frequency domain and the electrical time-domain. The main circuit I worked with in my PhD was a recurrent photonic loop with an optical-electrical-optical transfer function; simultaneous co-simulation is the only was to faithfully model all the co-evolving dynamics.
 
-That's the whole idea. A photodiode's current is available to a TIA in the same timestep, and that amplifier's output is available to drive a modulator, inside one convergent solve. No co-simulation, no fixed-point iteration between two tools.
+This problem has been tackled by a few commercial solvers; Cadence has photonics, Synopsys has OptoCompiler, OptiSPICE has been developing another tool, and they all came to the same conclusion: treating optical fields as ordinary MNA (modified nodal analysis; the SPICE algorithm) unknowns, and solving them alongside the currents and voltages of the analog electronics. These tools are useful, but I found no open source alternative, so I've been building [fairchild](https://github.com/hughmor/fairchild).
 
 ## why bother
 
-There are good open-source photonic simulators, but almost all of them are frequency-domain S-matrix tools. They're great for generating spectra and they are not built for electro-optic feedback. The commercial time-domain tools that *can* do this exist — Cadence and Synopsys both have one — and they are heavyweight, and they don't interface with open-source layout workflows.
+There are good open-source photonic simulators, but almost all of them are frequency-domain S-matrix tools. They're great for generating spectra and they are not built for electro-optic feedback. The commercial time-domain tools that exist are sophisticated and integrate with all the foundry PDKs, but they don't interface with open-source layout workflows. I thought this would be a fun project to take on to learn about how these simulators work under the hood, and I think I've started to build something almost as sophisticated, and my goal is to make it much more user friendly.
 
-I wanted something I could point at a netlist, get a number out of, and read the source of when the number looked wrong.
-
-## a link, end to end, in one deck
+## example: a PAM-4 link
 
 Here's the example I keep coming back to. A 10 Gb/s link: CW laser, Mach-Zehnder modulator, photodiode, transimpedance amplifier.
 
@@ -39,9 +37,8 @@ Rl    tout 0 1meg
 .tran 1p 51.1n
 ```
 
-<!-- FIGURE 1 — the noisy eye + BER panel. copy docs/plots/noisy_eye_and_ber.png into assets/img/fairchild/
+<!-- FIGURE 1 — the noisy eye + BER panel. copy docs/plots/noisy_eye_and_ber.png into assets/img/fairchild/ -->
 ![NRZ and PAM-4 eyes through an MZM built from primitives, the link's measured bandwidth, and the noise checked three ways]({{ "assets/img/fairchild/noisy_eye_and_ber.png" | relative_url }})
--->
 
 Everything in that figure is measured from the circuit, at true amplitude, with no scaling. The eyes are a real PRBS-9. The PAM-4 drive levels are pre-distorted through the modulator's $\sin^2$ transfer the way a real transmitter's DAC does it. The 3 dB point comes out of `.ac`, so it's a result rather than a parameter.
 
@@ -50,8 +47,8 @@ The part I'm happiest with is the noise check. The same generators run in both d
 Both rails carrying the same noise is the signature of a receiver limited by its amplifier rather than by the light. Swap the TIA for a load resistor and the noise piles onto the `1` rail instead, which is the RIN-limited case.
 
 <!-- FIGURE 2 — receiver noise budget, thermal/shot/RIN crossovers and the SNR ceiling.
-![Receiver noise budget]({{ "assets/img/fairchild/receiver_noise_budget.png" | relative_url }})
 -->
+![Receiver noise budget]({{ "assets/img/fairchild/receiver_noise_budget.png" | relative_url }})
 
 A photonic receiver reports the whole direct-detection budget,
 
@@ -59,29 +56,39 @@ $$S_I = \frac{4kT}{R_L} + 2qI + \mathrm{RIN}\cdot I^2$$
 
 rather than just its load resistor, so the SNR saturates at the RIN ceiling instead of improving forever with optical power. That ceiling is the thing you actually design against, and it's invisible if your simulator only models thermal noise.
 
-## optical ports are bundles
+## try it out
 
-One design decision worth calling out. An optical port carries a slowly-varying envelope as $(\mathrm{re}, \mathrm{im}, \lambda)$, and a port is a *bundle* rather than three pins. So a 4-port device is a 4-port symbol, not a 12-pin one, and WDM comes from declaring a port $N$ channels wide instead of from any per-device opt-in.
+Wheels aren't published on PyPI yet, so you need to clone the repo, and then run `maturin develop --release`. There's also a C ABI with host-driven transient stepping, for mixed-signal co-simulation where your C program owns the timestepping.
 
-Rings, MZIs and filter banks compose in the netlist from primitives. There's no `fc_microring` — you build one, and its lineshape falls out of the coupling and the loss you gave it.
+```bash
+cargo build --release
+./target/release/fairchild -f examples/electronic/rc_step.sp
+```
 
-<!-- FIGURE 3 — micro-ring through-port transmission, resonance shifting under bias.
-![Micro-ring through-port transmission]({{ "assets/img/fairchild/native_mrr_wavelength_sweep.png" | relative_url }})
--->
+Or from Python:
 
-## how fast, and how close to right
+```python
+import fairchild
 
-Both of these are reproducible — `python3 benchmarks/plot.py` regenerates the figures, and `benchmarks/METHODOLOGY.md` discloses the comparison rules, because benchmark posts without methodology are worth nothing.
+c = fairchild.Circuit()
+c.load("examples/photonic/native_mrr_modulator.sp")
+r = c.run("tran", step=5e-9, stop=2e-6, method="gear")
+```
+
+
+
+## comparing to `ngspice`
+
 
 <!-- FIGURE 4 — accuracy overlay vs ngspice, with residual strips.
-![Accuracy overlay against ngspice]({{ "assets/img/fairchild/accuracy_analog.png" | relative_url }})
 -->
+![Accuracy overlay against ngspice]({{ "assets/img/fairchild/accuracy_analog.png" | relative_url }})
 
-Linear circuits match ngspice to sub-1 mV RMS. Every panel carries a residual strip, because two curves drawn on top of each other look identical at 1 mV and at 100 mV alike. The switching circuits show a larger RMS, and that's edge timing rather than offset — the residual is flat between transitions and spikes at each one, which is what a fixed step resolving a 1 ns edge looks like. A finer step shrinks it.
+Linear circuits match ngspice to sub-1 mV RMS; the residuals show the discrepancy. The switching circuits show a larger RMS, which happen because of edge timing rather than offset; the residual is flat between transitions and spikes at each one. A finer step shrinks it.
 
 <!-- FIGURE 5 — wall-clock scaling vs circuit size.
-![Wall-clock scaling vs circuit size]({{ "assets/img/fairchild/scaling_wall_time.png" | relative_url }})
 -->
+![Wall-clock scaling vs circuit size]({{ "assets/img/fairchild/scaling_wall_time.png" | relative_url }})
 
 Transient wall-clock on CMOS ring oscillators, 3 to 499 stages, each backend forced in turn. At 499 stages:
 
@@ -110,15 +117,11 @@ the fastest way to lose the argument.
 
 ## what doesn't work yet
 
-The honest version, because a silent wrong answer is worse than a crash and I'd rather you knew the shape of the gaps.
+**The photonic models are not validated against an external simulator.** Writing some tests to ensure `fairchild` agrees with other open-source simulators is on my roadmap, but hasn't made it to the top of the priority list yet. If you have a measured device or a trusted reference to compare against, that's the most useful thing anyone could throw at this right now.
 
-There are 521 tests. The electrical models are compared against ngspice 46 circuit by circuit, and those suites fail loudly in CI rather than skipping when ngspice is missing.
+Also unsupported: lossy transmission lines, native `.mc`, and PSF/FSDB output.
 
-**The photonic models are not validated against an external simulator.** They're checked against analytic closed forms and equivalence tests, which catches a lot, but it is not the same thing. That's the largest gap in coverage and `docs/model_status.md` marks it per device. If you have a measured device or a trusted reference to compare against, that's the most useful thing anyone could throw at this right now.
-
-Also unsupported: lossy transmission lines, `.disto`, `.pz`, native `.mc`, and PSF/FSDB output.
-
-There are two documents for this, because "supported" isn't a binary. `docs/spice_support.md` tabulates every ngspice element letter, dot-command and source function, and says whether the unimplemented ones error or warn. `docs/model_status.md` gives every model parameter three columns: parsed, stamped, validated. A parameter that parses but changes nothing is the exact failure mode both documents exist to expose.
+There are two documents for this: `docs/spice_support.md` tabulates `fairchild`'s support for every ngspice element letter, dot-command and source function; `docs/model_status.md` has an overview of the current status of all the built-in models.
 
 ## schematic capture
 
@@ -136,33 +139,8 @@ Results annotate back onto the schematic as text or embedded plots.
 This is the one that will sell the whole thing to anyone who has fought a netlist by hand.
 -->
 
-## trying it
-
-```bash
-cargo build --release
-./target/release/fairchild -f examples/electronic/rc_step.sp
-```
-
-Or from Python:
-
-```python
-import fairchild
-
-c = fairchild.Circuit()
-c.load("examples/photonic/native_mrr_modulator.sp")
-r = c.run("tran", step=5e-9, stop=2e-6, method="gear")
-```
-
-Wheels aren't on PyPI yet, so the Python package needs `maturin develop --release` from a clone. There's also a C ABI with host-driven transient stepping, for mixed-signal co-simulation where your program owns the clock.
-
-Most of the photonic examples take `--selftest`, which asserts the physics instead of plotting it, so you can check the install does what it claims without reading a single graph.
-
-It's Apache-2.0. Issues and PRs welcome, and the two rules in `CONTRIBUTING.md` are the ones I care about: a silent wrong answer is worse than a crash, and a test isn't finished until you've broken the code and watched it fail.
-
 <!-- TODO before publishing:
-  - copy the plots out of the repo into assets/img/fairchild/ and uncomment figures 1-5
+
   - take the KiCad screenshot for figure 6
-  - fill in the comparison table, only with cells you've verified
   - decide whether to cut the netlist listing; it's the best part but it's long
-  - move to _posts/ as YYYY-MM-DD-fairchild.md
 -->
